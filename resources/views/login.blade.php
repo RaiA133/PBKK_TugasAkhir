@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1><b>Halaman Login baru</b></h1>
+    <h1><b>Halaman Login</b></h1>
     <hr class="opacity-100 mb-5">
 
     <div class="col-lg-12 mx-3">

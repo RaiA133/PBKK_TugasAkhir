@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1><b>Halaman Home berubah</b></h1>
+    <h1><b>Halaman Home</b></h1>
     <hr class="mb-5 opacity-100">
 
     <div class="col-lg-12">
