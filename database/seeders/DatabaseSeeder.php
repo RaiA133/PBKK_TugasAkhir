@@ -42,68 +42,72 @@ class DatabaseSeeder extends Seeder
 
         Menu::create([
             'menu_category_id' => 1, // category : sate
-            'nama_makanan' => 'Sate Ayam',
+            'nama_menu' => 'Sate Ayam',
             'slug' => 'sate-ayam',
+            'gambar' => 'assets/img/default.jpg',
             'harga' => '28'
         ]);
         Menu::create([
             'menu_category_id' => 1,
-            'nama_makanan' => 'Sate Kambing',
+            'nama_menu' => 'Sate Kambing',
             'slug' => 'sate-kambing',
             'harga' => '30'
         ]);
         Menu::create([
             'menu_category_id' => 1,
-            'nama_makanan' => 'Sate Sapi',
+            'nama_menu' => 'Sate Sapi',
             'slug' => 'sate-sapi',
             'harga' => '34'
         ]);
         Menu::create([
             'menu_category_id' => 2, // category : jajanan ringan
-            'nama_makanan' => 'Batagor',
+            'nama_menu' => 'Batagor',
             'slug' => 'batagor',
             'harga' => '12'
         ]);
         Menu::create([
             'menu_category_id' => 2,
-            'nama_makanan' => 'Rujak Buah',
+            'nama_menu' => 'Rujak Buah',
             'slug' => 'rujak-buah',
             'harga' => '10'
         ]);
         Menu::create([
             'menu_category_id' => 2,
-            'nama_makanan' => 'Basreng Balado',
+            'nama_menu' => 'Basreng Balado',
             'slug' => 'basreng-balado',
             'harga' => '12'
         ]);
         Menu::create([
             'menu_category_id' => 3, // category = minuman
-            'nama_makanan' => 'Es Teh Tawar',
+            'nama_menu' => 'Es Teh Tawar',
             'slug' => 'es-teh-tawar',
             'harga' => '4'
         ]);
         Menu::create([
             'menu_category_id' => 3,
-            'nama_makanan' => 'Air Putih',
+            'nama_menu' => 'Air Putih',
             'slug' => 'air-putih',
             'harga' => '2'
         ]);
         Menu::create([
             'menu_category_id' => 3,
-            'nama_makanan' => 'Jus Jeruk',
+            'nama_menu' => 'Jus Jeruk',
             'slug' => 'jus-jerukeruk',
             'harga' => '6'
         ]);
 
 
         Menu::create([
-            'nama_kategori' => 'Sate'
+            'nama_kategori' => 'Sate',
+            'slug' => 'sate-category'
         ]);
         Menu::create([
-            'nama_kategori' => 'Jajaran Ringan'
+            'nama_kategori' => 'Jajaran Ringan',
+            'slug' => 'jajanan-ringan'
         ]);
         Menu::create([
-            'nama_kategori' => 'Minuman'
+            'nama_kategori' => 'Minuman',
+            'slug' => 'minuman-category'
         ]);
     }
 }

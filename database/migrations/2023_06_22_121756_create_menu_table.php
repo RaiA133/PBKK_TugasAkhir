@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
             $table->foreignId('menu_cateogry_id')->unique();
-            $table->string('nama_makanan');
+            $table->string('nama_menu');
             $table->string('slug')->unique();
+            $table->string('gambar');
+            $table->text('deskripsi_menu');
             $table->string('harga');
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
