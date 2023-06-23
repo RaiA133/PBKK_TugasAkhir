@@ -32,7 +32,6 @@
                 <div class="col-xs-12">
                     <div class="row mx-auto px-0 ps-2 product-card-grid">
 
-                        
                         @foreach ($home as $data)
                             {{-- @dd($data) --}}
                             {{-- satu block menu --}}
