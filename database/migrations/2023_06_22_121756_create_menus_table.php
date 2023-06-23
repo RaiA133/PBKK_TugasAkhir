@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menu', function (Blueprint $table) {
+
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu_cateogry_id')->unique();
+            $table->foreignId('menu_category_id')->nullable();
             $table->string('nama_menu');
             $table->string('slug')->unique();
             $table->string('gambar');
