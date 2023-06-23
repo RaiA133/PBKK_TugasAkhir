@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('menu_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_kategori')->unique();
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

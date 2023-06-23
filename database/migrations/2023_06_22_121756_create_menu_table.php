@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('menu', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu_cateogry_id');
-            $table->string('nama');
-            $table->string('slug');
+            $table->foreignId('menu_cateogry_id')->unique();
+            $table->string('nama_makanan');
+            $table->string('slug')->unique();
             $table->string('harga');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }
