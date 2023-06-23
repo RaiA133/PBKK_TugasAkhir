@@ -32,147 +32,58 @@
                 <div class="col-xs-12">
                     <div class="row mx-auto px-0 ps-2 product-card-grid">
 
-                        {{-- satu block menu --}}
-                        <div class="card mb-3 border border-black mx-2 product-card" style="width: 296px;">
-                            <img src="{{ asset('assets/img/ramen.jpg') }}" class="card-img-top" style="margin-top: 5%" alt="...">
-                            <hr class="opacity-100">
-                            <div class="card-body">
-                                <!-- Button trigger modal -->
-                                <h5>
-                                    <a type="button" class="card-title mb-4 text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <b>Ramen Ayam Miso Sup</b>
-                                    </a>
-                                </h5>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Ramen Ayam Miso Sup</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <img src="{{ asset('assets/img/ramen.jpg') }}" class="card-img-top" alt="...">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="modal-body">
-                                                            Deskripsi Ramen Ayam Miso Sup
+                        
+                        @foreach ($home as $data)
+                            {{-- @dd($data) --}}
+                            {{-- satu block menu --}}
+                            <div class="card mb-3 border border-black mx-2 product-card" style="width: 296px;">
+                                <img src="/{{ $data->gambar }}" class="card-img-top" style="margin-top: 5%" alt="...">
+                                <hr class="opacity-100">
+                                <div class="card-body">
+                                    <!-- Button trigger modal -->
+                                    <h5>
+                                        <a type="button" class="card-title mb-4 text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <b>{{ $data->nama_menu }}</b>
+                                        </a>
+                                    </h5>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">{{ $data->nama_menu }}</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <img src="/{{ $data->gambar }}  " class="card-img-top" alt="...">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="modal-body">
+                                                                {{ $data->deskripsi_menu }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12">
-                                    <div class="row text-center">
-                                        <h5 class="col-6 card-title border border-black p-2 ">
-                                            <a href="#" class="text-decoration-none text-success"><b>Ramen</b></a>
-                                        </h5>
-                                        <h5 class="col-6 card-title border border-black border-start-0 p-2 bg-success text-light">20K</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{-- satu block menu --}}
-                        <div class="card mb-3 border border-black mx-2 product-card" style="width: 296px;">
-                            <img src="{{ asset('assets/img/ramen.jpg') }}" class="card-img-top" style="margin-top: 5%" alt="...">
-                            <hr class="opacity-100">
-                            <div class="card-body">
-                                <!-- Button trigger modal -->
-                                <h5>
-                                    <a type="button" class="card-title mb-4 text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <b>Ramen Ayam Miso Sup</b>
-                                    </a>
-                                </h5>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Ramen Ayam Miso Sup</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <img src="{{ asset('assets/img/ramen.jpg') }}" class="card-img-top" alt="...">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="modal-body">
-                                                            Deskripsi Ramen Ayam Miso Sup
-                                                        </div>
-                                                    </div>
+                                                <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="row text-center">
+                                            <h5 class="col-6 card-title border border-black p-2 ">
+                                                <a href="#" class="text-decoration-none text-success"><b>{{ $data->menu_category->nama_category }}</b></a>
+                                            </h5>
+                                            <h5 class="col-6 card-title border border-black border-start-0 p-2 bg-success text-light text-center">{{ $data->harga }}K</h5>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12">
-                                    <div class="row text-center">
-                                        <h5 class="col-6 card-title border border-black p-2 ">
-                                            <a href="#" class="text-decoration-none text-success"><b>Ramen</b></a>
-                                        </h5>
-                                        <h5 class="col-6 card-title border border-black border-start-0 p-2 bg-success text-light">20K</h5>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                        {{-- satu block menu --}}
-                        <div class="card mb-3 border border-black mx-2 product-card" style="width: 296px;">
-                            <img src="{{ asset('assets/img/ramen.jpg') }}" class="card-img-top" style="margin-top: 5%" alt="...">
-                            <hr class="opacity-100">
-                            <div class="card-body">
-                                <!-- Button trigger modal -->
-                                <h5>
-                                    <a type="button" class="card-title mb-4 text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <b>Ramen Ayam Miso Sup</b>
-                                    </a>
-                                </h5>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">Ramen Ayam Miso Sup</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <img src="{{ asset('assets/img/ramen.jpg') }}" class="card-img-top" alt="...">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="modal-body">
-                                                            Deskripsi Ramen Ayam Miso Sup
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12">
-                                    <div class="row text-center">
-                                        <h5 class="col-6 card-title border border-black p-2 ">
-                                            <a href="#" class="text-decoration-none text-success"><b>Ramen</b></a>
-                                        </h5>
-                                        <h5 class="col-6 card-title border border-black border-start-0 p-2 bg-success text-light">20K</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        @endforeach
 
                         
 

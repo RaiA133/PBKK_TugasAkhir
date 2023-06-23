@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'sate-category'
         ]);
         Menu_category::create([
-            'nama_category' => 'Jajaran Ringan',
+            'nama_category' => 'Jajanan Ringan',
             'slug' => 'jajanan-ringan'
         ]);
         Menu_category::create([
