@@ -32,7 +32,8 @@ class MainController extends Controller
     public function tambah_menu()
     {
         return view('tambah_menu', [
-            'title' => 'Tambah Menu'
+            'title' => 'Tambah Menu',
+            'menu_category' => Menu_category::all()
         ]);
     }
     public function profil()

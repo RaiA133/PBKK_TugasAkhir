@@ -21,12 +21,26 @@
                         <span class="input-group-text border-black">K</span>
                     </div>
                     <div class="input-group mb-3">
-                        <select class="form-select border border-black" aria-label="Default select example" name="menu_category">
-                            <option selected>Kategori</option>
-                            <option value="Sate">Sate</option>
-                            <option value="Jajanan Ringan">Jajanan Ringan</option>
-                            <option value="Minuman">Minuman</option>
-                        </select>
+                        <div class="col-md-12">
+                            <div class="row">
+
+                                <div class="col-md-10">
+                                    <select class="form-select border border-black" aria-label="Default select example" name="menu_category">
+                                        <option selected>Kategori</option>
+                                        @foreach ($menu_category as $data)
+                                            <option value="{{ $data->nama_category }}">{{ $data->nama_category }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                {{-- TAMBAH KATEGORI --}}
+                                <div class="col-md-2">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="px-2 border border-black" style="padding : 6px;"> <b> + </b> </button>
+                                </div>
+                            
+                        </div>
+                    </div>
+                        
                     </div>
                     <div class="input-group mb-3">
                         <input type="file" class="form-control border border-black" id="inputGroupFile02">
@@ -43,3 +57,35 @@
 
     <hr class="mt-5 opacity-100">
 @endsection
+
+
+{{-- MODAL TAMBAH KATEGORI MENU --}}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Kategori baru</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <form action="" method="POST">
+
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Kategori:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>  
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Tambah Kategori</button>
+            </div>
+
+        </form>
+
+        </div>
+    </div>
+</div>
+{{-- END MODAL TAMBAH KATEGORI MENU --}}

@@ -22,7 +22,7 @@
             <option selected>Pilih Menu</option>
             <option value="/">Semua</option>
             @foreach ($menu_category as $pilihan)
-                <option value="/home/{{ $pilihan->slug }}">{{ $pilihan->nama_category}}</option> 
+                <option value="/home/{{ $pilihan->slug }}">{{ $pilihan->nama_category }}</option> 
             @endforeach
         </select>
         <hr class="opacity-100">
