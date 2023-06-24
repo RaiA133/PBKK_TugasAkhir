@@ -8,24 +8,7 @@
         <div class="row mx-auto position-relative">
             
             <div class="col-lg-3 mb-3 me-0">
-                <div class="card border border-black">
-                    <div class="card-body">
-                        <form class="d-flex " role="search">
-                            <input class="form-control me-2 border border-black"" type="search" placeholder="Cari Makanan" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit"><b>Cari</b></button>
-                        </form>
-                        <hr class="opacity-100">
-                        <select class="form-select border border-black"" aria-label="Default select example">
-                            <option selected>Urutkan</option>
-                            <option value="1">Terbaru</option>
-                            <option value="2">Terlama</option>
-                            <option value="3">Termahal</option>
-                            <option value="3">Termurah</option>
-                        </select>
-                        <hr class="opacity-100">
-                        <button class="btn btn-success w-100" type="submit"><b>Pesan</b></button>
-                    </div>
-                </div>
+                @include('includes.sidenav')
             </div>
 
             <div class="col-lg-9">
@@ -81,10 +64,7 @@
                                     </div>
                                 </div>
                             </div>
-
                         @endforeach
-
-                        
 
                     </div>
                 </div>
