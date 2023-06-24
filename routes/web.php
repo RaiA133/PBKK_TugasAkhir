@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/login', [MainController::class, 'login']);
 Route::get('/register', [MainController::class, 'register']);
 Route::get('/tambah-menu', [MainController::class, 'tambah_menu']);
 Route::get('/profil', [MainController::class, 'profil']);
+
+Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis']);

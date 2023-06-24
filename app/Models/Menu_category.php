@@ -13,6 +13,6 @@ class Menu_category extends Model
 
     public function menu()
     {
-        return $this->hasMany(Menus::class);
+        return $this->hasMany(Menu::class);
     }
 }
