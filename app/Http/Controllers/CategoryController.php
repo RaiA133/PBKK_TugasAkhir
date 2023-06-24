@@ -12,7 +12,8 @@ class CategoryController extends Controller
         return view('home_1category', [
             'title' => 'Home',
             'category' => $category,
-            'menu' => $category->menu
+            'menu' => $category->menu,
+            'menu_category' => Menu_category::all()
         ]);
     }
 }

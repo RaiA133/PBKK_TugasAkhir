@@ -15,7 +15,7 @@
                 <div class="col-xs-12">
                     <div class="row mx-auto px-0 ps-2 product-card-grid">
 
-                        @foreach ($home as $data)
+                        @foreach ($menu as $data)
                             {{-- @dd($data) --}}
                             {{-- satu block menu --}}
                             <div class="card mb-3 border border-black mx-2 product-card" style="width: 296px;">

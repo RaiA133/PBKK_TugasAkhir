@@ -13,7 +13,8 @@ class MainController extends Controller
     {
         return view('home', [
             'title' => 'Home',
-            'home' => Menu::all()
+            'menu' => Menu::all(),
+            'menu_category' => Menu_category::all()
         ]);
     }
     public function login()
