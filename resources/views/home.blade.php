@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(session('success'))
+        <div>{{ session('success') }}</div>
+    @endif
     <h1><b>Halaman Home</b></h1>
     <hr class="mb-5 opacity-100">
 
