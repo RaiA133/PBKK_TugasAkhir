@@ -27,16 +27,16 @@
                                 <div class="card-body">
                                     <!-- Button trigger modal -->
                                     <h5>
-                                        <a type="button" class="card-title mb-4 text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <a type="button" class="card-title mb-4 text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $data->id }}">
                                             <b>{{ $data->nama_menu }}</b>
                                         </a>
                                     </h5>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal-{{ $data->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5 fw-bold" id="exampleModalLabel">{{ $data->nama_menu }}</h1>
+                                                    <h1 class="modal-title fs-5 fw-bold">{{ $data->nama_menu }}</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="col-md-12">
