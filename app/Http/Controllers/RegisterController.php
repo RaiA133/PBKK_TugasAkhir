@@ -23,8 +23,12 @@ class RegisterController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        // Buat user baru
-        User::create($validatedData);
+        // Simpan data pengguna baru ke dalam database
+        $user = User::create([
+            'nama' => $validatedData['nama'],
+            'email' => $validatedData['email'],
+            'password' => bcrypt($validatedData['password']),
+        ]);
 
         // Redirect ke halaman login dengan pesan sukses
         return redirect('/login')->with('success', 'Registrasi berhasil, silahkan login.');
