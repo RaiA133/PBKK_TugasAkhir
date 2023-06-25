@@ -23,3 +23,6 @@ Route::get('/tambah-menu', [MainController::class, 'tambah_menu']);
 Route::get('/profil', [MainController::class, 'profil']);
 
 Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis']);
+
+Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');
+Route::post('/register', 'RegisterController@register');
