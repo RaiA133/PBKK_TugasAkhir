@@ -1,41 +1,33 @@
-<?php 
-class Login extends Controller
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class LoginController extends Controller
 {
-    function index()
+    public function showLoginForm()
     {
-        $this->load->model('Login');
-        $this->load->view('login');
+        return view('login');
+    }
 
-        if($_POST)
-        {
-            $email = $this->input->post('email');
-            $pass = $this->input->post('password');
+    public function login(Request $request)
+    {
+        // Validasi inputan
+        $validatedData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-            $users = $this->Login->ceklogin(['email' => $email]);
-            //kalau usernya ada di data
-            if($users)
-            {
-                if($users->password == md5($pass))
-                {
-                    $sessi = [
-                        'email' => $users->email,
-                        'level' => $users->level,
-                        'id_user' => $users->id
-                    ];
-                    $this->session->set_userdata($sessi);
-                    redirect(base_url().'home');
-                }else{
-                    echo "<script>alert('Password Tidak sesuai');</script>";
-                }
-            }else{
-                echo "<script>alert('Email belum Terdaftar');</script>";
-            }
+        // Proses autentikasi
+        if (auth()->attempt($validatedData)) {
+            // Jika autentikasi berhasil, redirect ke halaman lain
+            return redirect('/home');
+        } else {
+            // Jika autentikasi gagal, kembali ke halaman login dengan pesan error
+            return back()->withErrors([
+                'email' => 'Email atau password salah.',
+            ]);
         }
     }
-    function keluar()
-    {
-        session_destroy();
-        redirect('./');
-    }
 }
-?>

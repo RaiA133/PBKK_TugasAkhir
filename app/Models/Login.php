@@ -1,7 +1,7 @@
 <?php
 class Login extends Model
 {
-    function ceklogin($data)
+    function showLoginForm($data)
     {
         return $this->db->get_where('users',$data)->row();
     }
