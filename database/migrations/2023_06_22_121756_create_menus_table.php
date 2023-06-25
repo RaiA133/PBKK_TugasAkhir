@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('menu_cateogry_id');
-            $table->string('nama');
-            $table->string('slug');
+            $table->foreignId('menu_category_id')->nullable();
+            $table->string('nama_menu');
+            $table->string('slug')->unique();
+            $table->string('gambar');
+            $table->text('deskripsi_menu');
             $table->string('harga');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

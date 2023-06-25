@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1><b>Halaman Home</b></h1>
+    <h1><b>Halaman Home | Kategori : {{ $category->nama_category }}</b></h1>
     <hr class="mb-5 opacity-100">
 
     <div class="col-lg-12">
@@ -16,7 +16,6 @@
                     <div class="row mx-auto px-0 ps-2 product-card-grid">
 
                         @foreach ($menu as $data)
-                            {{-- @dd($data) --}}
                             {{-- satu block menu --}}
                             <div class="card mb-3 border border-black mx-2 product-card" style="width: 296px;">
                                 <img src="/{{ $data->gambar }}" class="card-img-top" style="margin-top: 5%" alt="...">
