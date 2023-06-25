@@ -12,6 +12,6 @@ class Menu extends Model
 
     public function menu_category()
     {
-        return $this->belongsTo(Menu_category::class);
+        return $this->belongsTo(Menu_category::class, 'menu_category_id');
     }
 }

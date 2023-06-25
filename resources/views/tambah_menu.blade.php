@@ -7,8 +7,10 @@
     <div class="col-lg-12 mx-3">
         <div class="card border border-black mx-auto" style="width: 320px;">
             <div class="card-body">
-                <form action="" method="POST" class="mb-3" enctype="multipart/form-data">
 
+                {{-- FORM TAMBAH DATA MENU --}}
+                <form action="/tambah-menu/store" method="POST" class="mb-3" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                     <div class="input-group mb-3">
                         <input type="text" class="form-control border border-black" name="nama_menu" placeholder="Nama Menu" autocomplete="off" required>
                     </div>
@@ -17,14 +19,15 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text border-black">Rp.</span>
-                        <input type="number" class="form-control border-black" aria-label="Amount (to the nearest dollar)" placeholder="000">
+                        <input type="number" class="form-control border-black" name="harga" aria-label="Amount (to the nearest dollar)" placeholder="000">
                         <span class="input-group-text border-black">K</span>
                     </div>
                     <div class="input-group mb-3">
                         <select class="form-select border border-black" name="menu_category">
                             <option selected>Kategori</option>
                             @foreach ($menu_category as $data)
-                                <option value="{{ $data->nama_category }}">{{ $data->nama_category }}</option>
+
+                                <option value="{{ $data->id }}">{{ $data->nama_category }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -53,14 +56,16 @@
                         
                     </div>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control border border-black" id="inputGroupFile02">
-                        <label class="input-group-text border border-black" for="inputGroupFile02">Gambar</label>
+                        <input type="file" class="form-control border border-black" id="inputGroupFile02" name="gambar">
+                        <label class="input-group-text border border-black"  for="inputGroupFile02" accept="image/*">Gambar</label>
                     </div>
                     
                     <hr class="opacity-100">
 
                     <button class="btn btn-success w-100" type="submit"><b>Tambah Menu</b></button>
                 </form>
+
+
             </div>
         </div>
     </div>
