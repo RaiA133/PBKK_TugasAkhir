@@ -18,10 +18,11 @@ use App\Http\Controllers\RegisterController;
 
 
 Route::get('/', [MainController::class, 'home']);
-Route::get('/login', [MainController::class, 'login']);
 Route::get('/tambah-menu', [MainController::class, 'tambah_menu']);
 Route::get('/profil', [MainController::class, 'profil']);
 Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis']);
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register/tambah', [RegisterController::class, 'register']);
+
+Route::get('/login', [LoginController::class, 'showLoginForm']);

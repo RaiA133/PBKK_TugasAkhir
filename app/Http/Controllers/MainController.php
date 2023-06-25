@@ -17,18 +17,6 @@ class MainController extends Controller
             'menu_category' => Menu_category::all()
         ]);
     }
-    public function login()
-    {
-        return view('login', [
-            'title' => 'Login'
-        ]);
-    }
-    // public function register()
-    // {
-    //     return view('register', [
-    //         'title' => 'Register'
-    //     ]);
-    // }
     public function tambah_menu()
     {
         return view('tambah_menu', [
