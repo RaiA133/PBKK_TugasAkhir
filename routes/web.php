@@ -26,7 +26,7 @@ Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis'])
 
 // RegisterController
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register/tambah', [RegisterController::class, 'register']);
+Route::post('/register/store', [RegisterController::class, 'store'])->name('register');
 
 // LoginController
 Route::get('/login', [LoginController::class, 'showLoginForm']);

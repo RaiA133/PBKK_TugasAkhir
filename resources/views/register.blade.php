@@ -8,7 +8,8 @@
         <div class="card border border-black mx-auto" style="width: 320px;">
             <div class="card-body">
 
-                <form action="{{ url('register/tambah') }}" method="POST" class="mb-3">
+                <form action="{{ route('register') }}" method="POST" class="mb-3">
+                    @csrf
                     <input type="text" class="form-control border border-black" name="nama" placeholder="Nama Lengkap" autocomplete="off" required>
                     <hr class="opacity-100">
                     <input type="email" class="form-control border border-black" name="email" placeholder="Email" autocomplete="off" required>
