@@ -3,6 +3,11 @@
 @section('content')
     <h1><b>Halaman Login</b></h1>
     <hr class="opacity-100 mb-5">
+    @if(session('success'))
+        <div class="alert alert-success" role="alert">
+            <b>{{ session('success') }}</b>
+        </div>
+    @endif
 
     <div class="col-lg-12 mx-3">
         <div class="card border border-black mx-auto" style="width: 320px;">

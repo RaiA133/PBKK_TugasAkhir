@@ -10,14 +10,30 @@
 
                 <form action="{{ route('register') }}" method="POST" class="mb-3">
                     @csrf
-                    <input type="text" class="form-control border border-black" name="nama" placeholder="Nama Lengkap" autocomplete="off" required>
+                    <input type="text" class="form-control border border-black @error('nama') is-invalid @enderror" name="nama" placeholder="Nama Lengkap" autocomplete="off">
+                    @error('nama')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <hr class="opacity-100">
-                    <input type="email" class="form-control border border-black" name="email" placeholder="Email" autocomplete="off" required>
+                    <input type="email" class="form-control border border-black @error('email') is-invalid @enderror" name="email" placeholder="Email" autocomplete="off">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <hr class="opacity-100">
-                    <input type="password" class="form-control border border-black" name="password" placeholder="Password" required>
+                    <input type="password" class="form-control border border-black @error('password') is-invalid @enderror" name="password" placeholder="Password">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <hr class="opacity-100">
                     <button class="btn btn-success w-100" type="submit"><b>Register</b></button>
                 </form>
+                
 
                 <a href="{{ url('/login') }}" class="text-decoration-none text-success"><b>Sudah punya akun?</b></a>
             </div>

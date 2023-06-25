@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(session('success'))
-        <div>{{ session('success') }}</div>
-    @endif
     <h1><b>Halaman Home</b></h1>
     <hr class="mb-5 opacity-100">
+    @if(session('success'))
+        <div class="alert alert-success" role="alert">
+            <b>{{ session('success') }}</b>
+        </div>
+    @endif
 
     <div class="col-lg-12">
         <div class="row mx-auto position-relative">
