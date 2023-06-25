@@ -21,21 +21,31 @@
                         <span class="input-group-text border-black">K</span>
                     </div>
                     <div class="input-group mb-3">
-                        <div class="col-md-12">
-                            <div class="row">
+                        <select class="form-select border border-black" name="menu_category">
+                            <option selected>Kategori</option>
+                            @foreach ($menu_category as $data)
+                                <option value="{{ $data->nama_category }}">{{ $data->nama_category }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                                <div class="col-md-10">
-                                    <select class="form-select border border-black" aria-label="Default select example" name="menu_category">
-                                        <option selected>Kategori</option>
-                                        @foreach ($menu_category as $data)
-                                            <option value="{{ $data->nama_category }}">{{ $data->nama_category }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                    <div class="input-group mb-3">
+                        <div class="col-12 text-center">
+                            <div class="row" style="font-size: 15px">
+
 
                                 {{-- TAMBAH KATEGORI --}}
-                                <div class="col-md-2">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" class="px-2 border border-black" style="padding : 6px;"> <b> + </b> </button>
+                                <div class="col-6">
+                                    <button title="Tambah Kategori Menu" type="button" data-bs-toggle="modal" data-bs-target="#tambahKategori" class="border border-black">
+                                            Tambah Kategori
+                                    </button>
+                                </div>
+
+                                {{-- HAPUS KATEGORI --}}
+                                <div class="col-6">
+                                    <button title="Hapus Kategori Menu" type="button" data-bs-toggle="modal" data-bs-target="#hapusKategori" class="border border-black"> 
+                                            Hapus Kategori  
+                                    </button>
                                 </div>
                             
                         </div>
@@ -60,7 +70,7 @@
 
 
 {{-- MODAL TAMBAH KATEGORI MENU --}}
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahKategori" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
 
         <div class="modal-content">
@@ -74,7 +84,7 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Kategori:</label>
-                    <input type="text" class="form-control" id="recipient-name">
+                    <input type="text" class="form-control border border-black" id="recipient-name">
                 </div>  
             </div>
 
@@ -89,3 +99,46 @@
     </div>
 </div>
 {{-- END MODAL TAMBAH KATEGORI MENU --}}
+
+{{-- MODAL HAPUS KATEGORI MENU --}}
+<div class="modal fade" id="hapusKategori" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Kategori baru</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <table class="table border border-black">
+            <thead>
+              <tr>
+                <th scope="col" class="text-center">No</th>
+                <th scope="col">Nama Kategori</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+
+                @php
+                    $no = 1;
+                @endphp
+                @foreach ($menu_category as $data)
+                <tr>
+                    <th scope="row" class="text-center align-middle">{{ $no }}</th>
+                    <td class="align-middle">{{ $data->nama_category }}</td>
+                    <td>
+                        <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</a>
+                    </td>
+                </tr>
+                @php
+                    $no++;
+                @endphp
+                @endforeach
+            </tbody>
+          </table>
+
+        </div>
+    </div>
+</div>
+{{-- END MODAL HAPUS KATEGORI MENU --}}

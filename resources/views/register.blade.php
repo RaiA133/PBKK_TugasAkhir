@@ -7,7 +7,8 @@
     <div class="col-lg-12 mx-3">
         <div class="card border border-black mx-auto" style="width: 320px;">
             <div class="card-body">
-                <form action="" method="POST" class="mb-3">
+
+                <form action="{{ url('register/tambah') }}" method="POST" class="mb-3">
                     <input type="text" class="form-control border border-black" name="nama" placeholder="Nama Lengkap" autocomplete="off" required>
                     <hr class="opacity-100">
                     <input type="email" class="form-control border border-black" name="email" placeholder="Email" autocomplete="off" required>
@@ -16,6 +17,7 @@
                     <hr class="opacity-100">
                     <button class="btn btn-success w-100" type="submit"><b>Register</b></button>
                 </form>
+
                 <a href="{{ url('/login') }}" class="text-decoration-none text-success"><b>Sudah punya akun?</b></a>
             </div>
         </div>

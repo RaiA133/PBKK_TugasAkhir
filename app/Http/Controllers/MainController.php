@@ -23,12 +23,12 @@ class MainController extends Controller
             'title' => 'Login'
         ]);
     }
-    public function register()
-    {
-        return view('register', [
-            'title' => 'Register'
-        ]);
-    }
+    // public function register()
+    // {
+    //     return view('register', [
+    //         'title' => 'Register'
+    //     ]);
+    // }
     public function tambah_menu()
     {
         return view('tambah_menu', [

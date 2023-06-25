@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,9 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', [MainController::class, 'home']);
 Route::get('/login', [MainController::class, 'login']);
-Route::get('/register', [MainController::class, 'register']);
 Route::get('/tambah-menu', [MainController::class, 'tambah_menu']);
 Route::get('/profil', [MainController::class, 'profil']);
-
 Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis']);
 
-Route::get('/register', 'RegisterController@showRegistrationForm')->name('register');
-Route::post('/register', 'RegisterController@register');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register/tambah', [RegisterController::class, 'register']);
