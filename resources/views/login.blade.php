@@ -12,10 +12,11 @@
     <div class="col-lg-12 mx-3">
         <div class="card border border-black mx-auto" style="width: 320px;">
             <div class="card-body">
-                <form action="" method="POST" class="mb-3">
+                <form action="{{ route('login') }}" method="POST" class="mb-3">
+                    @csrf
                     <input type="email" class="form-control border border-black" name="email" placeholder="Email" autocomplete="off" required>
                     <hr class="opacity-100">
-                    <input type="password" class="form-control border border-black" name="passwod" placeholder="Password" name="password" autocomplete="off" required>
+                    <input type="password" class="form-control border border-black" name="password" placeholder="Password" autocomplete="off" required>
                     <hr class="opacity-100">
                     <button class="btn btn-success w-100" type="submit"><b>Login</b></button>
                 </form>

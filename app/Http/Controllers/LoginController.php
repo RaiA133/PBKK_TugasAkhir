@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -15,21 +16,20 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        // Validasi inputan
         $validatedData = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Proses autentikasi
-        if (auth()->attempt($validatedData)) {
-            // Jika autentikasi berhasil, redirect ke halaman lain
-            return redirect('/home');
+        if (Auth::attempt(['email' => $validatedData['email'], 'password' => $validatedData['password']])) {
+            return redirect()->route('home')->with('success', 'Login berhasil! Selamat datang di halaman home.');
         } else {
-            // Jika autentikasi gagal, kembali ke halaman login dengan pesan error
             return back()->withErrors([
                 'email' => 'Email atau password salah.',
             ]);
         }
+            
     }
 }
+?>
+

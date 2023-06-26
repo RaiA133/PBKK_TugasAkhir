@@ -1,9 +1,15 @@
 <?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
 class Login extends Model
 {
-    function showLoginForm($data)
+    protected $table = 'users'; // Ganti 'users' dengan nama tabel pengguna yang sesuai dengan aplikasi Anda
+
+    public function showLoginForm($data)
     {
-        return $this->db->get_where('users',$data)->row();
+        return $this->where($data)->first();
     }
 }
-?>

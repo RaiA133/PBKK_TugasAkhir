@@ -30,6 +30,8 @@ Route::post('/register/store', [RegisterController::class, 'store'])->name('regi
 
 // LoginController
 Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+
 
 // MenuController
 Route::get('/tambah-menu', [MenuController::class, 'showTambahMenuForm']);
