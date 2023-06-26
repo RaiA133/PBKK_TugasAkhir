@@ -36,6 +36,22 @@
                         <div class="col-12 text-center">
                             <div class="row" style="font-size: 15px">
 
+                                {{-- ALERT KATEGORI BARU DITAMBAHKAN --}}
+                                <div class="form-outline">
+                                    @if(Session::has('success'))
+                                        <div class="alert alert-success py-1">
+                                            {{ Session::get('success') }}
+                                        </div>
+                                    @endif
+                                </div>
+                                {{-- ALERT KATEGORI BERHASIL DIHAPUS --}}
+                                <div class="form-outline">
+                                    @if(Session::has('success-hapus'))
+                                        <div class="alert alert-danger py-1">
+                                            {{ Session::get('success-hapus') }}
+                                        </div>
+                                    @endif
+                                </div>
 
                                 {{-- TAMBAH KATEGORI --}}
                                 <div class="col-6">
@@ -84,12 +100,17 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <form action="" method="POST">
-
+        <form action="tambah-category" method="POST">
+            @csrf
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Kategori:</label>
-                    <input type="text" class="form-control border border-black" id="recipient-name">
+                    <input type="text" class="form-control border border-black @error('nama') is-invalid @enderror" id="recipient-name" name="nama_category" required autocomplete="off">
+                    @error('nama')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>  
             </div>
 
@@ -133,7 +154,7 @@
                     <th scope="row" class="text-center align-middle">{{ $no }}</th>
                     <td class="align-middle">{{ $data->nama_category }}</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</a>
+                        <a href="/hapus-category/{{ $data->slug }}" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin?');">Hapus</a>
                     </td>
                 </tr>
                 @php

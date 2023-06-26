@@ -37,3 +37,7 @@ Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis'])
 // MenuController
 Route::get('/tambah-menu', [MenuController::class, 'showTambahMenuForm']);
 Route::post('/tambah-menu/store', [MenuController::class, 'store']);
+
+//CategoryController
+Route::post('/tambah-category', [CategoryController::class, 'store']);
+Route::get('/hapus-category/{category:slug}', [CategoryController::class, 'destroy']);
