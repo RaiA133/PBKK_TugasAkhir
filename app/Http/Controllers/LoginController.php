@@ -14,20 +14,22 @@ class LoginController extends Controller
         ]);
     }
 
-    public function login(Request $request)
+    public function authenticate(Request $request)
     {
-        $validatedData = $request->validate([
-            'email' => 'required|email',
+        $request->validate([
+            'email' => 'required',
             'password' => 'required',
+        ], [
+            'email.required' => 'Email Wajib Diisi',
+            'password.required' => 'Password Wajib Diisi',
         ]);
 
-        if (Auth::attempt(['email' => $validatedData['email'], 'password' => $validatedData['password']])) {
-            return redirect()->route('home')->with('success', 'Login berhasil! Selamat datang di halaman home.');
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return 'sukses';
         } else {
-            return back()->withErrors([
-                'email' => 'Email atau password salah.',
-            ]);
+            return 'gagal';
         }
-            
     }
 }

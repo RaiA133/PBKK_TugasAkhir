@@ -7,11 +7,22 @@
     <div class="col-lg-12 mx-3">
         <div class="card border border-black mx-auto" style="width: 320px;">
             <div class="card-body">
-                <form action="{{ route('login') }}" method="POST" class="mb-3">
+                <form action="authenticate" method="POST" class="mb-3">
                     @csrf
-                    <input type="email" class="form-control border border-black" name="email" placeholder="Email" autocomplete="off" required>
+                    <input type="email" class="form-control border border-black @error('email') is-invalid @enderror" name="email" placeholder="Email" autocomplete="off">
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                     <hr class="opacity-100">
-                    <input type="password" class="form-control border border-black" name="password" placeholder="Password" autocomplete="off" required>
+                    <input type="password" class="form-control border border-black @error('password') is-invalid @enderror" name="password" placeholder="Password" autocomplete="off">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <hr class="opacity-100">
 
                     {{-- ALERT REGISTRASI BERHASIL --}}
