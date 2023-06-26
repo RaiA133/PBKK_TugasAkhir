@@ -3,6 +3,8 @@
 @section('content')
     <h1><b>Halaman Home</b></h1>
     <hr class="mb-5 opacity-100">
+
+    {{-- ALERT BERHASIL TAMBAH MENU / LOGIN --}}
     @if(session('success'))
         <div class="alert alert-success" role="alert">
             <b>{{ session('success') }}</b>

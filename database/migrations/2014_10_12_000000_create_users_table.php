@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama')->unique();
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('is_admin')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

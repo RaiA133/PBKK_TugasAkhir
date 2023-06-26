@@ -7,10 +7,19 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link {{ ($title == 'Home') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
-          <a class="nav-link {{ ($title == 'Login') ? 'active' : '' }}" href="/login">Login</a>
-          <a class="nav-link {{ ($title == 'Register') ? 'active' : '' }}" href="/register">Register</a>
-          <a class="nav-link {{ ($title == 'Tambah Menu') ? 'active' : '' }}" href="/tambah-menu">Tambah Menu</a>
-          <a class="nav-link {{ ($title == 'Profil') ? 'active' : '' }}" href="/profil">Profil</a>
+          @auth 
+            @if (in_array(auth()->user()->is_admin, [1]))
+              <a class="nav-link {{ ($title == 'Tambah Menu') ? 'active' : '' }}" href="/tambah-menu">Tambah Menu</a>
+            @endif
+          @endauth
+          @if (auth()->user())
+            <a class="nav-link {{ ($title == 'Profil') ? 'active' : '' }}" href="/profil">Profil</a>
+            <a class="nav-link" href="/logout">Logout</a>
+          @else
+            <a class="nav-link {{ ($title == 'Login') ? 'active' : '' }}" href="/login">Login</a>
+            <a class="nav-link {{ ($title == 'Register') ? 'active' : '' }}" href="/register">Register</a>
+          @endif
+          
         </div>
       </div>
     </div>

@@ -33,15 +33,9 @@ class LoginController extends Controller
         // dd($credentials);
 
         if (Auth::attempt($credentials)) {
-            return 'sukses';
+            return redirect('home')->with('success', 'Kamu Berhasil Login');
         } else {
-            return 'gagal';
-            // $user = User::where('email', $credentials['email'])->first();
-            // if (!$user) {
-            //     return redirect('login')->with('failed', 'Email atau Password Salah');
-            // } else {
-            //     return redirect('login')->with('failed', 'Email atau Password Salah');
-            // }
+            return redirect('login')->with('failed', 'Email tau Password Salah');
         }
     }
 

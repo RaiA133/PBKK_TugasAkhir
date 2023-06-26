@@ -26,19 +26,22 @@ class DatabaseSeeder extends Seeder
             'id' => 1,
             'nama' => 'Raie Aswajjillah',
             'email' => 'rai010303@gmail.com',
-            'password' => Hash::make('123123')
+            'password' => Hash::make('123123'),
+            'is_admin' => 1
         ]);
         User::create([
             'id' => 2,
             'nama' => 'Yoan Nurazizah',
             'email' => 'yoan332@gmail.com',
-            'password' => Hash::make('123123')
+            'password' => Hash::make('123123'),
+            'is_admin' => 1
         ]);
         User::create([
             'id' => 3,
             'nama' => 'Elsa Islamiyanti',
             'email' => 'Elsa123@gmail.com',
-            'password' => Hash::make('123123')
+            'password' => Hash::make('123123'),
+            'is_admin' => 1
         ]);
 
         Menu::create([
