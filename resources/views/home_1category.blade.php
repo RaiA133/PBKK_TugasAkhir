@@ -18,6 +18,13 @@
                         @foreach ($menu as $data)
                             {{-- satu block menu --}}
                             <div class="card mb-3 border border-black mx-2 product-card" style="width: 296px;">
+                                @auth 
+                                @if (in_array(auth()->user()->is_admin, [1]))
+                                <div class="col-1 position-absolute mt-3 me-3 align-self-end border">
+                                    <a href="/hapus-menu/{{ $data->slug }}" class="btn btn-outline-danger" onclick="return confirm('Yakin Hapus Menu?');""><b>X</b></a>
+                                </div>
+                                @endif
+                                @endauth
                                 <img src="/{{ $data->gambar }}" class="card-img-top" style="margin-top: 5%" alt="...">
                                 <hr class="opacity-100">
                                 <div class="card-body">

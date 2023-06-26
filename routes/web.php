@@ -32,12 +32,13 @@ Route::post('/register/store', [RegisterController::class, 'store'])->name('regi
 Route::get('/', [MainController::class, 'home']);
 Route::get('/home', [MainController::class, 'home']);
 Route::get('/profil', [MainController::class, 'profil']);
-Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis']);
 
 // MenuController
 Route::get('/tambah-menu', [MenuController::class, 'showTambahMenuForm']);
 Route::post('/tambah-menu/store', [MenuController::class, 'store']);
+Route::get('/hapus-menu/{menu:slug}', [MenuController::class, 'destroy']);
 
 //CategoryController
 Route::post('/tambah-category', [CategoryController::class, 'store']);
+Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis']);
 Route::get('/hapus-category/{category:slug}', [CategoryController::class, 'destroy']);

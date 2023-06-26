@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Menu_category;
 use App\Models\Menu;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
@@ -53,5 +54,13 @@ class MenuController extends Controller
         }
 
         return redirect('/')->with('success', 'Menu Baru Ditambahkan.');
+    }
+
+    public function destroy(Menu $menu)
+    {
+        // dd($menu->gambar);
+        Storage::delete('public/' . $menu->gambar);
+        $menu->delete();
+        return redirect('/')->with('success', 'Menu Berhasil Dihapus.');
     }
 }
