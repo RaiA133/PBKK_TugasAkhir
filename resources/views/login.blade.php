@@ -3,11 +3,6 @@
 @section('content')
     <h1><b>Halaman Login</b></h1>
     <hr class="opacity-100 mb-5">
-    @if(session('success'))
-        <div class="alert alert-success" role="alert">
-            <b>{{ session('success') }}</b>
-        </div>
-    @endif
 
     <div class="col-lg-12 mx-3">
         <div class="card border border-black mx-auto" style="width: 320px;">
@@ -18,6 +13,16 @@
                     <hr class="opacity-100">
                     <input type="password" class="form-control border border-black" name="password" placeholder="Password" autocomplete="off" required>
                     <hr class="opacity-100">
+
+                    {{-- ALERT REGISTRASI BERHASIL --}}
+                    <div class="form-outline">
+                        @if(Session::has('success'))
+                            <div class="alert alert-success py-1">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
+                    </div>
+
                     <button class="btn btn-success w-100" type="submit"><b>Login</b></button>
                 </form>
                 <a href="{{ url('/register') }}" class="text-decoration-none text-success"><b>Belum punya akun?</b></a>
