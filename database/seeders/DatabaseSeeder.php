@@ -3,11 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-
-use App\Models\User;
 use App\Models\Menu;
+use App\Models\User;
 use App\Models\Menu_category;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,19 +26,19 @@ class DatabaseSeeder extends Seeder
             'id' => 1,
             'nama' => 'Raie Aswajjillah',
             'email' => 'rai010303@gmail.com',
-            'password' => bcrypt('123123')
+            'password' => Hash::make('123123')
         ]);
         User::create([
             'id' => 2,
             'nama' => 'Yoan Nurazizah',
             'email' => 'yoan332@gmail.com',
-            'password' => bcrypt('123123')
+            'password' => Hash::make('123123')
         ]);
         User::create([
             'id' => 3,
             'nama' => 'Elsa Islamiyanti',
             'email' => 'Elsa123@gmail.com',
-            'password' => bcrypt('123123')
+            'password' => Hash::make('123123')
         ]);
 
         Menu::create([

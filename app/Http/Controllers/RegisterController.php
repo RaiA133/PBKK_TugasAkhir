@@ -18,6 +18,7 @@ class RegisterController extends Controller
 
     public function store(\Illuminate\Http\Request $request)
     {
+
         // Validasi inputan
         $validatedData = $request->validate([
             'nama' => 'required|unique:users',

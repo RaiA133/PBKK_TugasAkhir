@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->foreignId('menu_category_id')->nullable();

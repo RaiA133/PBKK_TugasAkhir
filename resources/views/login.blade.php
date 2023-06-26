@@ -9,7 +9,7 @@
             <div class="card-body">
                 <form action="authenticate" method="POST" class="mb-3">
                     @csrf
-                    <input type="email" class="form-control border border-black @error('email') is-invalid @enderror" name="email" placeholder="Email" autocomplete="off">
+                    <input type="email" value="{{ Session::get('email') }}" class="form-control border border-black @error('email') is-invalid @enderror" name="email" placeholder="Email" autocomplete="off">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -25,6 +25,14 @@
                     @enderror
                     <hr class="opacity-100">
 
+                    {{-- ALERT LOGIN GAGAL --}}
+                    <div class="form-outline">
+                        @if(Session::has('failed'))
+                            <div class="alert alert-danger py-1">
+                                {{ Session::get('failed') }}
+                            </div>
+                        @endif
+                    </div>
                     {{-- ALERT REGISTRASI BERHASIL --}}
                     <div class="form-outline">
                         @if(Session::has('success'))

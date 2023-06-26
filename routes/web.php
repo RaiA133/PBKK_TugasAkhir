@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +17,6 @@ use App\Http\Controllers\MenuController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 
 // MainController
 Route::get('/', [MainController::class, 'home']);
@@ -31,6 +30,7 @@ Route::post('/register/store', [RegisterController::class, 'store'])->name('regi
 // LoginController
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/authenticate', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 // MenuController
