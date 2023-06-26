@@ -20,7 +20,7 @@
                             <div class="card mb-3 border border-black mx-2 product-card" style="width: 296px;">
                                 @auth 
                                 @if (in_array(auth()->user()->is_admin, [1]))
-                                <div class="col-1 position-absolute mt-3 me-3 align-self-end border">
+                                <div class="col-1 position-absolute mt-3 me-3 align-self-end border" title="Hapus Menu">
                                     <a href="/hapus-menu/{{ $data->slug }}" class="btn btn-outline-danger" onclick="return confirm('Yakin Hapus Menu?');""><b>X</b></a>
                                 </div>
                                 @endif

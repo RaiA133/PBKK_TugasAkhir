@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PesanController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 
@@ -42,3 +43,6 @@ Route::get('/hapus-menu/{menu:slug}', [MenuController::class, 'destroy']);
 Route::post('/tambah-category', [CategoryController::class, 'store']);
 Route::get('/home/{category:slug}', [CategoryController::class, 'persatujenis']);
 Route::get('/hapus-category/{category:slug}', [CategoryController::class, 'destroy']);
+
+// PesanController
+Route::post('/pesan', [PesanController::class, 'pesan']);
