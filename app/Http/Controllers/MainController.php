@@ -17,4 +17,7 @@ class MainController extends Controller
             'menu_category' => Menu_category::all()
         ]);
     }
+    public function cari()
+    {
+    }
 }

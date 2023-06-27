@@ -2,7 +2,7 @@
     <div class="card-body">
 
 
-        <form class="d-flex " role="search">
+        <form class="d-flex " role="search" action="" method="{{ url() }}">
             <input class="form-control me-2 border border-black"" type="search" placeholder="Cari Makanan" aria-label="Search">
             <button class="btn btn-outline-success" type="submit"><b>Cari</b></button>
         </form>
