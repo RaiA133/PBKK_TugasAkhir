@@ -17,10 +17,4 @@ class MainController extends Controller
             'menu_category' => Menu_category::all()
         ]);
     }
-    public function profil()
-    {
-        return view('profil', [
-            'title' => 'Profil'
-        ]);
-    }
 }
