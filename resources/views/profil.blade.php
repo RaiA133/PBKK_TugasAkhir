@@ -27,7 +27,7 @@
 
                     <!-- Profile Edit Form -->
                     <form action="{{ route('profil.update') }}" method="POST" class="mb-3">
-                        @method('put')
+                        @method('PUT')
                         @csrf
 
                         <input type="text" class="form-control border border-black @error('nama') is-invalid @enderror"
@@ -56,8 +56,7 @@
 
                 <div class="tab-pane fade pt-3" id="profile-change-password">
                     <!-- Change Password Form -->
-                    <form method="post" action="">
-                        @method('put')
+                    <form method="POST" action="{{ route('profil.change-password') }}">
                         @csrf
 
                         <input name="current_password" type="password"
@@ -88,7 +87,6 @@
                             <button type="submit" class="btn btn-success w-100">Change Password</button>
                         </div>
                     </form>
-
                     <!-- End Change Password Form -->
 
                 </div>

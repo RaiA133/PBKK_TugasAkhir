@@ -36,6 +36,7 @@ Route::get('/home', [MainController::class, 'home']);
 // ProfilController
 Route::get('/profil', [ProfilController::class, 'showProfileForm']);
 Route::put('/profil-update', [ProfilController::class, 'profil'])->name('profil.update');
+Route::post('/profil-change-password', [ProfilController::class, 'changePassword'])->name('profil.change-password');
 
 // MenuController
 Route::get('/tambah-menu', [MenuController::class, 'showTambahMenuForm']);
