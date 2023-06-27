@@ -2,15 +2,15 @@
     <div class="card-body">
 
 
-        <form class="d-flex " role="search" action="" method="{{ url() }}">
+        {{-- <form class="d-flex " role="search" action="{{ url('search') }}" method="POST">
             <input class="form-control me-2 border border-black"" type="search" placeholder="Cari Makanan" aria-label="Search">
             <button class="btn btn-outline-success" type="submit"><b>Cari</b></button>
-        </form>
-        <hr class="opacity-100">
+        </form> --}}
+        {{-- <hr class="opacity-100"> --}}
 
-        <select class="form-select border border-black"" aria-label="Default select example">
+        <select class="form-select border border-black" onChange="window.location.href=this.value" aria-label="Default select example">
             <option selected>Urutkan</option>
-            <option value="1">Terbaru</option>
+            <option value="/home/">Terbaru</option>
             <option value="2">Terlama</option>
             <option value="3">Termahal</option>
             <option value="3">Termurah</option>

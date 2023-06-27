@@ -10,9 +10,13 @@ class ProfilController extends Controller
 {
     public function showProfileForm()
     {
-        return view('profil', [
-            'title' => 'Profil'
-        ]);
+        if (auth()->user()) {
+            return view('profil', [
+                'title' => 'Profil'
+            ]);
+        } else {
+            return redirect('login');
+        }
     }
     public function profil(Request $request)
     {

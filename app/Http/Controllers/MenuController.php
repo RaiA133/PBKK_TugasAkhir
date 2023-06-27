@@ -12,10 +12,15 @@ class MenuController extends Controller
 {
     public function showTambahMenuForm()
     {
-        return view('tambah_menu', [
-            'title' => 'Tambah Menu',
-            'menu_category' => Menu_category::all()
-        ]);
+        // dd(auth()->user());
+        if (auth()->user()) {
+            return view('tambah_menu', [
+                'title' => 'Tambah Menu',
+                'menu_category' => Menu_category::all()
+            ]);
+        } else {
+            return redirect('login');
+        }
     }
 
     public function store(Request $request)

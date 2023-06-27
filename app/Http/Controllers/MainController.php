@@ -11,11 +11,15 @@ class MainController extends Controller
 {
     public function home()
     {
-        return view('home', [
-            'title' => 'Home',
-            'menu' => Menu::all(),
-            'menu_category' => Menu_category::all()
-        ]);
+        if (auth()->user()) {
+            return view('home', [
+                'title' => 'Home',
+                'menu' => Menu::all(),
+                'menu_category' => Menu_category::all()
+            ]);
+        } else {
+            return redirect('login');
+        }
     }
     public function cari()
     {
