@@ -15,7 +15,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
+          @if (auth()->user())
           <a class="nav-link {{ ($title == 'Home') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+          @endif
           @auth
           @if (in_array(auth()->user()->is_admin, [1]))
           <a class="nav-link {{ ($title == 'Tambah Menu') ? 'active' : '' }}" href="/tambah-menu">Tambah Menu</a>
@@ -23,7 +25,7 @@
           @endauth
           @if (auth()->user())
           <a class="nav-link {{ ($title == 'Profil') ? 'active' : '' }}" href="/profil">Profil</a>
-          <a class="nav-link" href="/logout">Logout</a>
+          <a class="nav-link" href="/logout" onclick="return confirm('Yakin Mau Keluar?');">Logout</a>
           @else
           <a class="nav-link {{ ($title == 'Login') ? 'active' : '' }}" href="/login">Login</a>
           <a class="nav-link {{ ($title == 'Register') ? 'active' : '' }}" href="/register">Register</a>
